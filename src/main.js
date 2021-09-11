@@ -1,6 +1,14 @@
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import store from './store';
+import Loading from '@/components/Loading.vue';
 
-createApp(App).use(store).use(router).mount('#app');
+const app = createApp(App);
+
+app.component('Loading', Loading);
+
+app.use(router);
+
+app.mount('#app');
