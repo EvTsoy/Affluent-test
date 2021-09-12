@@ -4,7 +4,18 @@
     <div v-else>
       <SearchBar @search="search($event)" />
       <router-link :to="{ name: 'posts.create' }" class="btn btn-success my-3">Create</router-link>
-      <Post v-for="post in posts" :key="post.id" :post="post" />
+      <div v-for="post in posts" :key="post.id">
+        <Post :post="post" />
+        <div class="text-end m-4">
+          <router-link
+            class="btn btn-info me-1"
+            :to="{ name: 'posts.update', params: { id: post.id } }"
+            >Edit</router-link
+          >
+          <button class="btn btn-danger" @click.prevent="deletePost(post.id)">Remove</button>
+        </div>
+        <hr />
+      </div>
     </div>
 
     <Pagination
@@ -39,11 +50,20 @@ export default {
     const {
       posts, error, request: getPosts, loading,
     } = api.getPosts();
+    const { error: deleteError, request: remove } = api.deletePost();
 
     (async () => {
       await getPosts();
       allPosts.value = posts.value;
     })();
+
+    const deletePost = async (id) => {
+      await remove(id);
+      if (!deleteError.value) {
+        await getPosts();
+        allPosts.value = posts.value;
+      }
+    };
 
     const search = (value) => {
       allPosts.value = useSearch(posts, value);
@@ -57,6 +77,7 @@ export default {
       posts: pagination.result,
       pagination,
       search,
+      deletePost,
     };
   },
 };

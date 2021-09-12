@@ -18,6 +18,8 @@
 
     <p class="lead">TODO for project</p>
     <ul>
+      <li class="lead">Error handling</li>
+      <li class="lead">Unit Testing</li>
       <li class="lead">More advanced validation on inputs maybe using external package</li>
       <li class="lead">More advanced search</li>
       <li class="lead">Separate page with comments for post</li>
