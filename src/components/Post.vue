@@ -9,7 +9,10 @@
 export default {
   name: 'Post',
   props: {
-    post: Object,
+    post: {
+      type: Object,
+      required: true,
+    },
   },
 };
 </script>

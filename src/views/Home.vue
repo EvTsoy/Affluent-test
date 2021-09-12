@@ -18,12 +18,13 @@
 
     <p class="lead">TODO for project</p>
     <ul>
-      <li class="lead">Error handling</li>
+      <li class="lead"><del>Validation on inputs</del></li>
       <li class="lead">Unit Testing</li>
-      <li class="lead">More advanced validation on inputs maybe using external package</li>
+      <li class="lead">E2E Testing</li>
+      <li class="lead">Error handling</li>
       <li class="lead">More advanced search</li>
       <li class="lead">Separate page with comments for post</li>
-      <li class="lead">Authentication</li>
+      <li class="lead">Authentication & Authorization</li>
       <li class="lead">Sweet Alerts or similar</li>
       <li class="lead">And much much more...</li>
     </ul>

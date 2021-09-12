@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  name: 'PostForm',
   props: {
     submitForm: {
       type: Function,
